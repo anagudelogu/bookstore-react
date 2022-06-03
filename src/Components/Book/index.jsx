@@ -6,6 +6,17 @@ const Book = ({ title, author }) => (
     <div>
       <span>{title}</span>
       <span>{author}</span>
+      <ul>
+        <li>
+          <button type="button">Comments</button>
+        </li>
+        <li>
+          <button type="button">Remove</button>
+        </li>
+        <li>
+          <button type="button">Edit</button>
+        </li>
+      </ul>
     </div>
   </li>
 );
