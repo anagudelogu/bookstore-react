@@ -1,0 +1,11 @@
+import Bookshelf from '../Bookshelf';
+import NewBookForm from '../NewBookForm';
+
+const BookstoreApp = () => (
+  <div className="App">
+    <Bookshelf />
+    <NewBookForm />
+  </div>
+);
+
+export default BookstoreApp;
