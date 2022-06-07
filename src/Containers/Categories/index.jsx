@@ -4,10 +4,10 @@ import { checkStatus } from '../../features/categories/categories';
 
 const Categories = () => {
   const dispatch = useDispatch();
-  const status = useSelector((state) => state.categories.value);
+  const status = useSelector((state) => state.categories);
 
   const handleClick = () => {
-    dispatch(checkStatus('Under Construction'));
+    dispatch(checkStatus());
   };
 
   return (
