@@ -2,10 +2,10 @@ import Bookshelf from '../Bookshelf';
 import NewBookForm from '../NewBookForm';
 
 const BookstoreApp = () => (
-  <div className="App">
+  <main className="App">
     <Bookshelf />
     <NewBookForm />
-  </div>
+  </main>
 );
 
 export default BookstoreApp;
