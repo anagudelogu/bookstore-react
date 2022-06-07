@@ -3,9 +3,14 @@
 const ADD = 'bookstore/books/ADD';
 const REMOVE = 'bookstore/books/REMOVE';
 
+const initialState = [
+  { id: '1', title: 'The Analyst', author: 'John Katzenbatch' },
+  { id: '2', title: "The Madman's Tale", author: 'John Katzenbatch' },
+];
+
 // Reducer
 
-const booksReducer = (state = [], action) => {
+const booksReducer = (state = initialState, action) => {
   if (action.type === ADD) {
     return [...state, action.payload];
   }

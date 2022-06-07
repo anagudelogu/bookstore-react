@@ -9,7 +9,7 @@ const Bookshelf = () => {
     <main>
       <ul>
         {books.map(({ id, title, author }) => (
-          <Book key={id} title={title} author={author} />
+          <Book id={id} key={id} title={title} author={author} />
         ))}
       </ul>
     </main>
