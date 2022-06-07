@@ -29,6 +29,8 @@ const NewBookForm = () => {
         id: uuidv4(),
         title,
         author,
+        category: 'cat',
+        progress: 0,
       }),
     );
     clearInputs();
