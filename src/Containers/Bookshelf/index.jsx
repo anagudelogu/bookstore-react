@@ -1,18 +1,56 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setFilterTo } from '../../features/categoryFilter/categoryFilter';
 import Book from '../../Components/Book';
+import {
+  Section,
+  FilterContainer,
+  Filter,
+  BookList,
+} from './styledBookshelf';
 
 const Bookshelf = () => {
+  const dispatch = useDispatch();
   const books = useSelector((state) => state.books);
+  const categoryFilter = useSelector((state) => state.categoryFilter);
+
+  const filteredBooks = books.filter((book) => {
+    if (categoryFilter === 'Show All') return book;
+    return book.category === categoryFilter;
+  });
+
+  const handleSelect = (e) => {
+    dispatch(setFilterTo(e.target.value));
+  };
 
   return (
-    <main>
-      <ul>
-        {books.map(({ id, title, author }) => (
-          <Book id={id} key={id} title={title} author={author} />
-        ))}
-      </ul>
-    </main>
+    <Section>
+      <FilterContainer>
+        Category:
+        <Filter name="filter" onChange={handleSelect}>
+          <option value="Show All">Show All</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Social philosophy">Social philosophy</option>
+          <option value="Adventure">Adventure</option>
+        </Filter>
+      </FilterContainer>
+      <BookList>
+        {filteredBooks.map(
+          ({
+            id, title, author, category, progress,
+          }) => (
+            <Book
+              id={id}
+              key={id}
+              title={title}
+              author={author}
+              category={category}
+              progress={progress}
+            />
+          ),
+        )}
+      </BookList>
+    </Section>
   );
 };
 
