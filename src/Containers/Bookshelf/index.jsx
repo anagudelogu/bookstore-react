@@ -1,24 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Book from '../../Components/Book';
 
 const Bookshelf = () => {
-  const books = [
-    {
-      id: 1,
-      title: 'The Analyst',
-      author: 'John Katzenbach',
-    },
-    {
-      id: 2,
-      title: 'The Analyst II',
-      author: 'John Katzenbach',
-    },
-    {
-      id: 3,
-      title: "The Madman's Tale",
-      author: 'John Katzenbach',
-    },
-  ];
+  const books = useSelector((state) => state.books.value);
+
   return (
     <main>
       <ul>
