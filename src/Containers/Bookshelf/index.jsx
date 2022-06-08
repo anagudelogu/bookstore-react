@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilterTo } from '../../features/categoryFilter/categoryFilter';
 import Book from '../../Components/Book';
+import selectAllCategories from '../../helpers/selectAllCategories';
 import {
   Section,
   FilterContainer,
@@ -19,9 +20,7 @@ const Bookshelf = () => {
     return book.category === categoryFilter;
   });
 
-  const allCategories = Array.from(
-    new Set(books.map((book) => book.category)),
-  );
+  const allCategories = selectAllCategories();
 
   const handleSelect = (e) => {
     dispatch(setFilterTo(e.target.value));
