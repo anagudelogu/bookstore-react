@@ -19,6 +19,10 @@ const Bookshelf = () => {
     return book.category === categoryFilter;
   });
 
+  const allCategories = Array.from(
+    new Set(books.map((book) => book.category)),
+  );
+
   const handleSelect = (e) => {
     dispatch(setFilterTo(e.target.value));
   };
@@ -29,9 +33,11 @@ const Bookshelf = () => {
         Category:
         <Filter name="filter" onChange={handleSelect}>
           <option value="Show All">Show All</option>
-          <option value="Thriller">Thriller</option>
-          <option value="Social philosophy">Social philosophy</option>
-          <option value="Adventure">Adventure</option>
+          {allCategories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </Filter>
       </FilterContainer>
       <BookList>
