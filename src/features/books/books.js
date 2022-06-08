@@ -1,42 +1,21 @@
+import {
+  getExistingBooks,
+  addNewBook,
+} from '../../services/bookstoreAPI';
+
 // Actions
 
+const READ = 'bookstore/books/READ';
 const ADD = 'bookstore/books/ADD';
 const REMOVE = 'bookstore/books/REMOVE';
 
-const initialState = [
-  {
-    id: '1',
-    title: 'The Analyst',
-    author: 'John Katzenbatch',
-    category: 'Thriller',
-    progress: 76,
-  },
-  {
-    id: '2',
-    title: "The Madman's Tale",
-    author: 'John Katzenbatch',
-    category: 'Thriller',
-    progress: 43,
-  },
-  {
-    id: '3',
-    title: 'Homo Deus',
-    author: 'Yuval Noah Harari',
-    category: 'Social philosophy',
-    progress: 30,
-  },
-  {
-    id: '4',
-    title: 'Twenty Thousand Leagues Under the Sea',
-    author: 'Jules Verne',
-    category: 'Adventure',
-    progress: 97,
-  },
-];
-
 // Reducer
 
-const booksReducer = (state = initialState, action) => {
+const booksReducer = (state = [], action) => {
+  if (action.type === READ) {
+    return action.payload;
+  }
+
   if (action.type === ADD) {
     return [...state, action.payload];
   }
@@ -50,10 +29,22 @@ const booksReducer = (state = initialState, action) => {
 
 // Action creators
 
-const addBook = (book) => ({
-  type: ADD,
-  payload: book,
-});
+const readExistingBooks = () => async (dispatch) => {
+  const books = await getExistingBooks();
+  dispatch({
+    type: READ,
+    payload: books,
+  });
+};
+
+const addBook = (book) => async (dispatch) => {
+  await addNewBook(book);
+
+  dispatch({
+    type: ADD,
+    payload: book,
+  });
+};
 
 const removeBook = (id) => ({
   type: REMOVE,
@@ -61,4 +52,4 @@ const removeBook = (id) => ({
 });
 
 export default booksReducer;
-export { addBook, removeBook };
+export { addBook, removeBook, readExistingBooks };
