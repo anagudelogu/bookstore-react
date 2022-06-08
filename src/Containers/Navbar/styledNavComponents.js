@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FaUser, FaBars } from 'react-icons/fa';
 import { MdClose } from 'react-icons/md';
 
-const StyledNav = styled.nav`
+const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +21,9 @@ const MainTitle = styled.h1`
 
   @media screen and (min-width: 768px) {
     font-size: 1.8rem;
-    width: 50%;
+    width: 30%;
+    max-width: 250px;
+    white-space: nowrap;
   }
 `;
 
@@ -68,16 +70,21 @@ const NavigationLinks = styled.ul`
   }
 `;
 
-const StyledNavLink = styled(NavLink)`
+const NavigationLink = styled(NavLink)`
   margin: 10px;
-  color: black;
+  color: white;
   font-size: inherit;
+
+  @media screen and (min-width: 768px) {
+    color: black;
+  }
 `;
 
 const UserIcon = styled(FaUser)`
   margin: 10px;
   width: 20px;
   height: 20px;
+  color: white;
 
   @media screen and (min-width: 768px) {
     color: var(--blue);
@@ -103,11 +110,11 @@ const CloseIcon = styled(MdClose)`
 `;
 
 export {
-  StyledNav,
+  Nav,
   MainTitle,
   NavigationLinksContainer,
   NavigationLinks,
-  StyledNavLink,
+  NavigationLink,
   UserIcon,
   HamburgerIcon,
   CloseIcon,
