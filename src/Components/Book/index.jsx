@@ -3,15 +3,7 @@ import PropTypes from 'prop-types';
 import { CircularProgressBar } from '@tomik23/react-circular-progress-bar';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../../features/books/books';
-import {
-  ListItem,
-  BookInfoContainer,
-  Category,
-  Title,
-  Author,
-  BookOption,
-  BookOptions,
-} from './styledBook';
+import * as styled from './styledBook';
 
 const Book = ({
   id, title, author, category, progress,
@@ -23,25 +15,27 @@ const Book = ({
   };
 
   return (
-    <ListItem>
-      <BookInfoContainer>
-        <Category>{category}</Category>
-        <Title>{title}</Title>
-        <Author>{author}</Author>
-        <BookOptions>
+    <styled.ListItem>
+      <styled.BookInfoContainer>
+        <styled.Category>{category}</styled.Category>
+        <styled.Title>{title}</styled.Title>
+        <styled.Author>{author}</styled.Author>
+        <styled.BookOptions>
           <li>
-            <BookOption type="button">Comments</BookOption>
+            <styled.BookOption type="button">
+              Comments
+            </styled.BookOption>
           </li>
           <li>
-            <BookOption type="button" onClick={handleClick}>
+            <styled.BookOption type="button" onClick={handleClick}>
               Remove
-            </BookOption>
+            </styled.BookOption>
           </li>
           <li>
-            <BookOption type="button">Edit</BookOption>
+            <styled.BookOption type="button">Edit</styled.BookOption>
           </li>
-        </BookOptions>
-      </BookInfoContainer>
+        </styled.BookOptions>
+      </styled.BookInfoContainer>
       <CircularProgressBar
         size={75}
         animationSmooth="1s ease-out"
@@ -49,7 +43,7 @@ const Book = ({
         colorSlice="#0290ff"
         percent={progress}
       />
-    </ListItem>
+    </styled.ListItem>
   );
 };
 

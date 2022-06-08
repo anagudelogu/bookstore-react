@@ -3,12 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setFilterTo } from '../../features/categoryFilter/categoryFilter';
 import Book from '../../Components/Book';
 import selectAllCategories from '../../helpers/selectAllCategories';
-import {
-  Section,
-  FilterContainer,
-  Filter,
-  BookList,
-} from './styledBookshelf';
+import * as styled from './styledBookshelf';
 
 const Bookshelf = () => {
   const dispatch = useDispatch();
@@ -27,19 +22,19 @@ const Bookshelf = () => {
   };
 
   return (
-    <Section>
-      <FilterContainer>
+    <styled.Section>
+      <styled.FilterContainer>
         Category:
-        <Filter name="filter" onChange={handleSelect}>
+        <styled.Filter name="filter" onChange={handleSelect}>
           <option value="Show All">Show All</option>
           {allCategories.map((category) => (
             <option key={category} value={category}>
               {category}
             </option>
           ))}
-        </Filter>
-      </FilterContainer>
-      <BookList>
+        </styled.Filter>
+      </styled.FilterContainer>
+      <styled.BookList>
         {filteredBooks.map(
           ({
             id, title, author, category, progress,
@@ -54,8 +49,8 @@ const Bookshelf = () => {
             />
           ),
         )}
-      </BookList>
-    </Section>
+      </styled.BookList>
+    </styled.Section>
   );
 };
 

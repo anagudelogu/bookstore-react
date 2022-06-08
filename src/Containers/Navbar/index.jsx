@@ -1,14 +1,5 @@
 import { useState } from 'react';
-import {
-  StyledNav,
-  MainTitle,
-  NavigationLinks,
-  NavigationLinksContainer,
-  StyledNavLink,
-  UserIcon,
-  HamburgerIcon,
-  CloseIcon,
-} from './styledNavComponents';
+import * as styled from './styledNavComponents';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,25 +13,30 @@ const Navbar = () => {
   };
 
   return (
-    <StyledNav>
-      <MainTitle>Bookstore CMS</MainTitle>
+    <styled.Nav>
+      <styled.MainTitle>Bookstore CMS</styled.MainTitle>
       {isOpen ? (
-        <CloseIcon onClick={handleClose} />
+        <styled.CloseIcon onClick={handleClose} />
       ) : (
-        <HamburgerIcon onClick={handleOpen} />
+        <styled.HamburgerIcon onClick={handleOpen} />
       )}
-      <NavigationLinksContainer className={isOpen ? 'open' : null}>
-        <NavigationLinks>
-          <StyledNavLink to="/" onClick={handleClose}>
+      <styled.NavigationLinksContainer
+        className={isOpen ? 'open' : null}
+      >
+        <styled.NavigationLinks>
+          <styled.NavigationLink to="/" onClick={handleClose}>
             BOOKS
-          </StyledNavLink>
-          <StyledNavLink to="/categories" onClick={handleClose}>
+          </styled.NavigationLink>
+          <styled.NavigationLink
+            to="/categories"
+            onClick={handleClose}
+          >
             CATEGORIES
-          </StyledNavLink>
-        </NavigationLinks>
-        <UserIcon />
-      </NavigationLinksContainer>
-    </StyledNav>
+          </styled.NavigationLink>
+        </styled.NavigationLinks>
+        <styled.UserIcon />
+      </styled.NavigationLinksContainer>
+    </styled.Nav>
   );
 };
 
