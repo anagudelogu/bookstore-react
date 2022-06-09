@@ -42,13 +42,10 @@ export const addNewBook = async ({
   await fetchRequest.call();
 };
 
-export const removeBook = async ({ id }) => {
+export const removeBookFromAPI = async (id) => {
   const fetchRequest = new FetchRequest({
     url: BASE_URL + ENDPOINTS.appid + ENDPOINTS.books + id,
     method: 'DELETE',
-    body: {
-      item_id: id,
-    },
   });
 
   await fetchRequest.call();

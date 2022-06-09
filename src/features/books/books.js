@@ -1,6 +1,7 @@
 import {
   getExistingBooks,
   addNewBook,
+  removeBookFromAPI,
 } from '../../services/bookstoreAPI';
 
 // Actions
@@ -39,17 +40,21 @@ const readExistingBooks = () => async (dispatch) => {
 
 const addBook = (book) => async (dispatch) => {
   await addNewBook(book);
-
+  const progress = Math.floor(Math.random() * 101);
   dispatch({
     type: ADD,
-    payload: book,
+    payload: { ...book, progress },
   });
 };
 
-const removeBook = (id) => ({
-  type: REMOVE,
-  payload: id,
-});
+const removeBook = (id) => async (dispatch) => {
+  await removeBookFromAPI(id);
+
+  dispatch({
+    type: REMOVE,
+    payload: id,
+  });
+};
 
 export default booksReducer;
 export { addBook, removeBook, readExistingBooks };
