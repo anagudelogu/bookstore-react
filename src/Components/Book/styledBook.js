@@ -5,7 +5,7 @@ const ListItem = styled.li`
   border: 1px solid #e8e8e8;
   margin: 15px 0;
   padding: 5px 20px;
-  min-height: 120px;
+  min-height: 119px;
   display: flex;
   align-items: center;
   justify-content: space-between;

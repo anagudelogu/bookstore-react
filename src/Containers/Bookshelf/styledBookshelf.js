@@ -1,4 +1,3 @@
-/* eslint-disable object-curly-newline */
 import styled from 'styled-components/macro';
 
 const Section = styled.section`
@@ -36,4 +35,6 @@ const BookList = styled.ul`
   overflow-y: scroll;
 `;
 
-export { Section, FilterContainer, Filter, BookList };
+export {
+  Section, FilterContainer, Filter, BookList,
+};
