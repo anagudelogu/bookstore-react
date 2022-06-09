@@ -25,10 +25,11 @@ export default class FetchRequest {
     const options = {
       method: this.method,
       body:
-        this.method === 'GET' ? undefined : JSON.stringify(this.body),
+        this.method === 'POST'
+          ? JSON.stringify(this.body)
+          : undefined,
       headers: this.method === 'POST' ? this.headers : undefined,
     };
-
     try {
       const response = await fetch(this.url, options);
       if (response.status === 201) return null;
