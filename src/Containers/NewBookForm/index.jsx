@@ -73,7 +73,7 @@ const NewBookForm = () => {
           name="categorySelector"
           onChange={handleCategoryChange}
         >
-          <option selected>Select Category</option>
+          <option defaultValue={category}>Select Category</option>
           {allCategories.map((category) => (
             <option key={category} value={category}>
               {category}

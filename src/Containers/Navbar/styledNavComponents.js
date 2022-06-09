@@ -22,7 +22,8 @@ const MainTitle = styled.h1`
   @media screen and (min-width: 768px) {
     font-size: 1.8rem;
     width: 30%;
-    max-width: 250px;
+    max-width: 260px;
+    min-width: 260px;
     white-space: nowrap;
   }
 `;

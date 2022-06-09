@@ -7,32 +7,51 @@ const FormContainer = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    align-items: flex-start;
+  }
 `;
 
 const Title = styled.h2`
   font-family: var(--montserrat);
   font-size: 1rem;
   font-weight: bold;
-  color: var(--warm-gray);
+  color: var(--mid-gray);
   margin-bottom: 6px;
 `;
 
 const Form = styled.form`
+  width: 100%;
   text-align: center;
   margin-inline: auto;
+
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
 `;
 
 const Input = styled.input`
+  width: 30%;
+  border: 1px solid #e8e8e8;
+  padding: 2px 8px;
   margin: 4px;
+  border-radius: 6px;
+
+  @media screen and (min-width: 768px) {
+    padding: 8px 20px;
+  }
 `;
 
 const DropDown = styled.select`
+  width: 30%;
   margin-left: 15px;
   font-family: var(--montserrat);
   font-size: 0.8rem;
   outline: none;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 `;
 
 const Button = styled.button`
@@ -48,40 +67,20 @@ const Button = styled.button`
   font-size: 0.6rem;
   border-radius: 3px;
   color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    padding-inline: 3rem;
+  }
 `;
 
 export {
   FormContainer, Title, Form, DropDown, Input, Button,
 };
-
-/* <div>
-      <h2>ADD NEW BOOK</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          name="title"
-          type="text"
-          placeholder="Enter book's title..."
-          value={title}
-          onChange={handleTitleChange}
-        />
-        <input
-          name="author"
-          type="text"
-          placeholder="Enter book's Author..."
-          value={author}
-          onChange={handleAuthorChange}
-        />
-        <button type="submit">ADD BOOK</button>
-        <select
-          name="categorySelector"
-          onChange={handleCategoryChange}
-        >
-          <option default>Select Category</option>
-          {allCategories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-      </form>
-    </div> */
