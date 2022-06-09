@@ -27,9 +27,7 @@
     "eject": "react-scripts eject",
     "stylefix": "npx stylelint \"**/*.{css,scss}\" --fix",
     "style": "npx stylelint \"**/*.{css,scss}\"",
-    "eslint": "npx eslint .",
-    "esfix": "npx eslint . --fix",
-    "rfix": "npx eslint . --ext .jsx --fix"
+    "rfix": "npx eslint . --ext .jsx --ext .js --fix"
   },
   "browserslist": {
     "production": [

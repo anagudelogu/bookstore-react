@@ -2,13 +2,19 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../../features/books/books';
-import selectAllCategories from '../../helpers/selectAllCategories';
 import * as styled from './styledNewForm';
 
 const NewBookForm = () => {
   const dispatch = useDispatch();
 
-  const allCategories = selectAllCategories();
+  const allCategories = [
+    'Thriller',
+    'Action,',
+    'Adventure',
+    'Fiction',
+    'Science Fiction',
+    'Social phylosophy',
+  ];
 
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -39,7 +45,6 @@ const NewBookForm = () => {
         title,
         author,
         category,
-        progress: 0,
       }),
     );
     clearInputs();
