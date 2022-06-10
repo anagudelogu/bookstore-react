@@ -2,12 +2,11 @@
 
 # Bookstore App
 
-[WORK IN PROGRESS]
-
-"Bookstore" is a website that allow users to:
+"Bookstore CMS" is a website to store your favorite books! It allows users to:
 
 - Display a list of books.
 - Add a new book.
+- Filter the existing books by category.
 - Remove a selected book.
 
 ---
@@ -15,6 +14,8 @@
 ## Built With
 
 - React
+- Redux
+- JavaScript
 - CSS
 - Styled Components
 
@@ -22,7 +23,7 @@
 
 ## Live Demo
 
-[Not available at the moment]
+[Live Demo](https://aag-bookstoreapp.netlify.app/)
 
 ---
 
@@ -64,4 +65,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](./LICENSE) licensed.

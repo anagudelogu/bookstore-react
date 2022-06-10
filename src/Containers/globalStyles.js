@@ -11,6 +11,11 @@ const GlobalStyle = createGlobalStyle`
         --montserrat: 'Montserrat', sans-serif;
         --roboto: 'Roboto Slab', serif;
     }
+
+    body{
+        max-width: 1400px;
+        margin-inline: auto;
+    }
 `;
 
 export default GlobalStyle;

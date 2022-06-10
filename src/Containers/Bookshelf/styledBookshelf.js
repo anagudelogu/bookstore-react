@@ -1,4 +1,3 @@
-/* eslint-disable object-curly-newline */
 import styled from 'styled-components/macro';
 
 const Section = styled.section`
@@ -16,6 +15,11 @@ const FilterContainer = styled.div`
   font-family: var(--montserrat);
   font-weight: bold;
   font-size: 0.8rem;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 5%;
+    text-align: left;
+  }
 `;
 
 const Filter = styled.select`
@@ -25,6 +29,7 @@ const Filter = styled.select`
   outline: none;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 `;
 
 const BookList = styled.ul`
@@ -34,6 +39,13 @@ const BookList = styled.ul`
   max-height: 50vh;
   min-height: 50vh;
   overflow-y: scroll;
+
+  @media screen and (min-width: 768px) {
+    max-height: 60vh;
+    min-height: 60vh;
+  }
 `;
 
-export { Section, FilterContainer, Filter, BookList };
+export {
+  Section, FilterContainer, Filter, BookList,
+};

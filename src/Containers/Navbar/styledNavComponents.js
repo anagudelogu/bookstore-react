@@ -22,13 +22,15 @@ const MainTitle = styled.h1`
   @media screen and (min-width: 768px) {
     font-size: 1.8rem;
     width: 30%;
-    max-width: 250px;
+    max-width: 260px;
+    min-width: 260px;
     white-space: nowrap;
   }
 `;
 
 const NavigationLinksContainer = styled.div`
   position: fixed;
+  z-index: 10;
   width: 100vw;
   background-color: var(--blue);
   height: 150px;

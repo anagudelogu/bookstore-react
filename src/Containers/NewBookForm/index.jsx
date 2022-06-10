@@ -9,7 +9,7 @@ const NewBookForm = () => {
 
   const allCategories = [
     'Thriller',
-    'Action,',
+    'Action',
     'Adventure',
     'Fiction',
     'Science Fiction',
@@ -48,6 +48,7 @@ const NewBookForm = () => {
       }),
     );
     clearInputs();
+    e.target.reset();
   };
 
   return (
@@ -72,7 +73,7 @@ const NewBookForm = () => {
           name="categorySelector"
           onChange={handleCategoryChange}
         >
-          <option default>Select Category</option>
+          <option defaultValue={category}>Select Category</option>
           {allCategories.map((category) => (
             <option key={category} value={category}>
               {category}
