@@ -32,19 +32,20 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  width: 30%;
+  width: 80%;
   border: 1px solid #e8e8e8;
   padding: 2px 8px;
   margin: 4px;
   border-radius: 6px;
 
   @media screen and (min-width: 768px) {
+    width: 30%;
     padding: 8px 20px;
   }
 `;
 
 const DropDown = styled.select`
-  width: 30%;
+  width: 80%;
   margin-left: 15px;
   font-family: var(--montserrat);
   font-size: 0.8rem;
@@ -52,6 +53,11 @@ const DropDown = styled.select`
   border: none;
   background-color: transparent;
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 30%;
+    padding: 8px 20px;
+  }
 `;
 
 const Button = styled.button`

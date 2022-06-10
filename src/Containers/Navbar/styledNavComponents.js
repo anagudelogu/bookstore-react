@@ -30,6 +30,7 @@ const MainTitle = styled.h1`
 
 const NavigationLinksContainer = styled.div`
   position: fixed;
+  z-index: 10;
   width: 100vw;
   background-color: var(--blue);
   height: 150px;
