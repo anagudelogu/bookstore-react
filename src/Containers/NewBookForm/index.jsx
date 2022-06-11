@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../../features/books/books';
+import React from 'react';
+import useNewBookForm from '../../customHooks/useNewBookForm';
 import * as styled from './styledNewForm';
 
 const NewBookForm = () => {
-  const dispatch = useDispatch();
+  const {
+    title,
+    author,
+    category,
+    newTitle,
+    newAuthor,
+    newCategory,
+    submitNewBook,
+  } = useNewBookForm();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submitNewBook();
+    e.target.reset();
+  };
 
   const allCategories = [
     'Thriller',
@@ -16,41 +28,6 @@ const NewBookForm = () => {
     'Social phylosophy',
   ];
 
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [category, setCategory] = useState('');
-
-  const clearInputs = () => {
-    setTitle('');
-    setAuthor('');
-  };
-
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const handleAuthorChange = (e) => {
-    setAuthor(e.target.value);
-  };
-
-  const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(
-      addBook({
-        id: uuidv4(),
-        title,
-        author,
-        category,
-      }),
-    );
-    clearInputs();
-    e.target.reset();
-  };
-
   return (
     <styled.FormContainer>
       <styled.Title>ADD NEW BOOK</styled.Title>
@@ -60,18 +37,18 @@ const NewBookForm = () => {
           type="text"
           placeholder="Enter book's title..."
           value={title}
-          onChange={handleTitleChange}
+          onChange={newTitle}
         />
         <styled.Input
           name="author"
           type="text"
           placeholder="Enter book's Author..."
           value={author}
-          onChange={handleAuthorChange}
+          onChange={newAuthor}
         />
         <styled.DropDown
           name="categorySelector"
-          onChange={handleCategoryChange}
+          onChange={newCategory}
         >
           <option defaultValue={category}>Select Category</option>
           {allCategories.map((category) => (
