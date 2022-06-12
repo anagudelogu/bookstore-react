@@ -1,5 +1,5 @@
 import React from 'react';
-import useNewBookForm from '../../customHooks/useNewBookForm';
+import useNewBookForm from '../../hooks/useNewBookForm';
 import * as styled from './styledNewForm';
 
 const NewBookForm = () => {

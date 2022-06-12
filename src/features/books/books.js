@@ -42,7 +42,10 @@ const addBook = (book) => async (dispatch) => {
   await addNewBook(book);
   dispatch({
     type: ADD,
-    payload: { ...book, progress: 0 },
+    payload: {
+      ...book,
+      totalChapters: Math.floor(Math.random() * 15) + 10,
+    },
   });
 };
 

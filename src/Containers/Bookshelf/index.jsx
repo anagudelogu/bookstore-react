@@ -37,7 +37,7 @@ const Bookshelf = () => {
       <styled.BookList>
         {filteredBooks.map(
           ({
-            id, title, author, category, progress,
+            id, title, author, category, totalChapters,
           }) => (
             <Book
               id={id}
@@ -45,7 +45,7 @@ const Bookshelf = () => {
               title={title}
               author={author}
               category={category}
-              progress={progress}
+              totalChapters={totalChapters}
             />
           ),
         )}
