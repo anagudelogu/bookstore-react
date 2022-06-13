@@ -11,6 +11,7 @@ const Book = ({
 }) => {
   const { progress, currentChapter, updateProgress } = useProgress({
     totalChapters,
+    id,
   });
 
   return (
