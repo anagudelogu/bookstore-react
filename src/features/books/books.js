@@ -51,7 +51,7 @@ const addBook = (book) => async (dispatch) => {
 
 const removeBook = (id) => async (dispatch) => {
   await removeBookFromAPI(id);
-
+  localStorage.removeItem(id);
   dispatch({
     type: REMOVE,
     payload: id,
