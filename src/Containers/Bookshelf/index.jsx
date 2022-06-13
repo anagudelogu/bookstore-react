@@ -35,20 +35,17 @@ const Bookshelf = () => {
         </styled.Filter>
       </styled.FilterContainer>
       <styled.BookList>
-        {filteredBooks.map(
-          ({
-            id, title, author, category, totalChapters,
-          }) => (
-            <Book
-              id={id}
-              key={id}
-              title={title}
-              author={author}
-              category={category}
-              totalChapters={totalChapters}
-            />
-          ),
-        )}
+        {filteredBooks.map(({
+          id, title, author, category,
+        }) => (
+          <Book
+            id={id}
+            key={id}
+            title={title}
+            author={author}
+            category={category}
+          />
+        ))}
       </styled.BookList>
     </styled.Section>
   );
