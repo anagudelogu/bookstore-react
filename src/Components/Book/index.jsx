@@ -7,10 +7,11 @@ import BookChapters from '../BookChapters';
 import ListItem from './styledBook';
 
 const Book = ({
-  id, title, author, category, totalChapters,
+  id, title, author, category,
 }) => {
-  const { progress, currentChapter, updateProgress } = useProgress({
-    totalChapters,
+  const {
+    progress, totalChapters, currentChapter, updateProgress,
+  } = useProgress({
     id,
   });
 
@@ -39,5 +40,4 @@ Book.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  totalChapters: PropTypes.number.isRequired,
 };

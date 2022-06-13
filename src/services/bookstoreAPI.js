@@ -19,7 +19,6 @@ export const getExistingBooks = async () => {
     title: data[key][0].title,
     author: data[key][0].author,
     category: data[key][0].category,
-    totalChapters: Math.floor(Math.random() * 15) + 10,
   }));
 
   return books;
