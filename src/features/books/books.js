@@ -32,9 +32,10 @@ const booksReducer = (state = [], action) => {
 
 const readExistingBooks = () => async (dispatch) => {
   const books = await getExistingBooks();
+  const sortedBooks = books.sort((a, b) => a.title.localeCompare(b.title));
   dispatch({
     type: READ,
-    payload: books,
+    payload: sortedBooks,
   });
 };
 
