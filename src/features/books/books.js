@@ -32,9 +32,10 @@ const booksReducer = (state = [], action) => {
 
 const readExistingBooks = () => async (dispatch) => {
   const books = await getExistingBooks();
+  const sortedBooks = books.sort((a, b) => a.title.localeCompare(b.title));
   dispatch({
     type: READ,
-    payload: books,
+    payload: sortedBooks,
   });
 };
 
@@ -42,13 +43,16 @@ const addBook = (book) => async (dispatch) => {
   await addNewBook(book);
   dispatch({
     type: ADD,
-    payload: { ...book, progress: 0 },
+    payload: {
+      ...book,
+      totalChapters: Math.floor(Math.random() * 15) + 10,
+    },
   });
 };
 
 const removeBook = (id) => async (dispatch) => {
   await removeBookFromAPI(id);
-
+  localStorage.removeItem(id);
   dispatch({
     type: REMOVE,
     payload: id,

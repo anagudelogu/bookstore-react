@@ -19,7 +19,7 @@ export const getExistingBooks = async () => {
     title: data[key][0].title,
     author: data[key][0].author,
     category: data[key][0].category,
-    progress: Math.floor(Math.random() * 101),
+    totalChapters: Math.floor(Math.random() * 15) + 10,
   }));
 
   return books;
