@@ -38,6 +38,7 @@ const NewBookForm = () => {
           placeholder="Enter book's title..."
           value={title}
           onChange={newTitle}
+          required
         />
         <styled.Input
           name="author"
@@ -45,10 +46,12 @@ const NewBookForm = () => {
           placeholder="Enter book's Author..."
           value={author}
           onChange={newAuthor}
+          required
         />
         <styled.DropDown
           name="categorySelector"
           onChange={newCategory}
+          required
         >
           <option defaultValue={category}>Select Category</option>
           {allCategories.map((category) => (
