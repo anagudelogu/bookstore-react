@@ -32,6 +32,9 @@ const ChapterLegend = styled.h4`
 const Chapter = styled.p`
   font-family: var(--roboto);
   font-size: 0.7rem;
+  @media screen and (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const UpdateProgressBtn = styled.button`
