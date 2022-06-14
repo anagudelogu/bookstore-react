@@ -1,31 +1,19 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setFilterTo } from '../../features/categoryFilter/categoryFilter';
 import Book from '../../Components/Book';
-import selectAllCategories from '../../helpers/selectAllCategories';
 import * as styled from './styledBookshelf';
+import useFilter from '../../hooks/useFilter';
 
 const Bookshelf = () => {
-  const dispatch = useDispatch();
-  const books = useSelector((state) => state.books);
-  const categoryFilter = useSelector((state) => state.categoryFilter);
-
-  const filteredBooks = books.filter((book) => {
-    if (categoryFilter === 'Show All') return book;
-    return book.category === categoryFilter;
-  });
-
-  const allCategories = selectAllCategories();
-
-  const handleSelect = (e) => {
-    dispatch(setFilterTo(e.target.value));
-  };
+  const { filteredBooks, allCategories, handleSelect } = useFilter();
 
   return (
     <styled.Section>
       <styled.FilterContainer>
         Category:
-        <styled.Filter name="filter" onChange={handleSelect}>
+        <styled.Filter
+          name="filter"
+          onChange={(e) => handleSelect(e)}
+        >
           <option value="Show All">Show All</option>
           {allCategories.map((category) => (
             <option key={category} value={category}>
