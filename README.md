@@ -2,6 +2,8 @@
 
 # Bookstore App
 
+![image](https://user-images.githubusercontent.com/77069011/174408568-1c6ac374-bbfa-4e20-9e28-67e3381e5f3b.png)
+
 "Bookstore CMS" is a website to store your favorite books! It allows users to:
 
 - Display a list of books.
